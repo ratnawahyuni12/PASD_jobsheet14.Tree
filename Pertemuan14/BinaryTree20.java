@@ -166,4 +166,21 @@ public class BinaryTree20 {
             }
         }
     }
+
+    // 1. Menambahkan node secara rekursif
+    public void addRekursif(Mahasiswa20 mahasiswa) {
+        root = addRekursif(root, mahasiswa);
+    }
+ 
+    private Node20 addRekursif(Node20 node, Mahasiswa20 mahasiswa) {
+        if (node == null) {
+            return new Node20(mahasiswa);
+        }
+        if (mahasiswa.ipk < node.mahasiswa.ipk) {
+            node.left = addRekursif(node.left, mahasiswa);
+        } else {
+            node.right = addRekursif(node.right, mahasiswa);
+        }
+        return node;
+    }
 }
