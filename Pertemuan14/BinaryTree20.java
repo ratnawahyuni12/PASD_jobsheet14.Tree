@@ -211,4 +211,19 @@ public class BinaryTree20 {
         System.out.println("Mahasiswa dengan IPK tertinggi:");
         current.mahasiswa.tampilInformasi();
     }
+
+    // 3. Menampilkan mahasiswa dengan IPK di atas suatu batas tertentu
+    public void tampilMahasiswaIPKdiAtas(double ipkBatas) {
+        tampilMahasiswaIPKdiAtas(root, ipkBatas);
+    }
+ 
+    private void tampilMahasiswaIPKdiAtas(Node20 node, double ipkBatas) {
+        if (node != null) {
+            tampilMahasiswaIPKdiAtas(node.left, ipkBatas);
+            if (node.mahasiswa.ipk > ipkBatas) {
+                node.mahasiswa.tampilInformasi();
+            }
+            tampilMahasiswaIPKdiAtas(node.right, ipkBatas);
+        }
+    }
 }
